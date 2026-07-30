@@ -7,8 +7,8 @@ const Navbar = () => {
         MovieScope
       </div>
       <div className='flex gap-15 '>
-        <span className='text-xl'>Home</span>
-        <span className='text-xl'>Favourites</span>
+        <span className='text-xl hover:text-(--white) hover:cursor-pointer'>Home</span>
+        <span className='text-xl hover:text-(--white) hover:cursor-pointer'>Favourites</span>
       </div>
     </div>
   )

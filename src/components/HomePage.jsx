@@ -6,7 +6,7 @@ const HomePage = () => {
     const [searchInput, setSearchInput] = useState("")
 
     return (
-        <div className='flex flex-col gap-25'>
+        <div className='flex flex-col gap-10'>
             <Navbar />
             <div className='flex justify-center'>
                 <input
@@ -32,7 +32,10 @@ const HomePage = () => {
                 />
             </div>
 
-          <div className='w-[100vw] border-2 h-[30vh] '></div>
+            <div className='flex justify-center font-bold text-3xl '>Popular Shows</div>
+            <div className='w-[100vw] border-2 h-[30vh] '>
+                
+            </div>
 
 
 
