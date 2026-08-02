@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from './Navbar'
 import { useState } from 'react'
+import MovieCard from './MovieCard'
 
 const HomePage = () => {
     const [searchInput, setSearchInput] = useState("")
@@ -32,13 +33,8 @@ const HomePage = () => {
                 />
             </div>
 
-            <div className='flex justify-center font-bold text-3xl '>Popular Shows</div>
-            <div className='w-[100vw] border-2 h-[30vh] '>
-                
-            </div>
-
-
-
+            <div className='flex justify-center font-bold text-3xl'>Popular Shows</div>
+            <MovieCard />
         </div>
     )
 }
