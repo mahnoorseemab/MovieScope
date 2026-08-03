@@ -1,13 +1,30 @@
 import React from 'react'
 import Navbar from './Navbar'
 import { useState } from 'react'
-import MovieCard from './MovieCard'
+import { useEffect } from 'react'
+import LoadingSpinner from './LoadingSpinner'
+
 
 const HomePage = () => {
+    const [loadingState, setLoadingState] = useState(true)
     const [searchInput, setSearchInput] = useState("")
+    const [moviesArray, setMoviesArray] = useState([])
+
+    useEffect(() => {
+        async function getPopularMovies() {
+            const popMovies = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${import.meta.env.VITE_TMDB_API_KEY}`)
+            const popularMovies = await popMovies.json()
+            setLoadingState(false)
+            console.log(popularMovies)
+        }
+        getPopularMovies()
+    }, [])
+
+
 
     return (
         <div className='flex flex-col gap-10'>
+            <LoadingSpinner />
             <Navbar />
             <div className='flex justify-center'>
                 <input
@@ -34,7 +51,10 @@ const HomePage = () => {
             </div>
 
             <div className='flex justify-center font-bold text-3xl'>Popular Shows</div>
-            <MovieCard />
+
+            <div className='w-[100vw] border-2 h-[35vh]'>
+
+            </div>
         </div>
     )
 }
