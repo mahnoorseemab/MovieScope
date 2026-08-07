@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import addToFavourites from '../assets/emptyheart.svg'
 
 const MovieCard = ({ key, movies }) => {
   return (
@@ -8,7 +9,7 @@ const MovieCard = ({ key, movies }) => {
       <div className='w-[11vw]'>Release Date: {movies.release_date}</div>
       <div className='flex gap-3'>
         <span>
-          <img src="./src/assets/unfavourite.svg" alt="" />
+          <img src={addToFavourites} alt="" />
         </span>
       </div>
     </div>
