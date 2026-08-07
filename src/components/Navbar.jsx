@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
@@ -7,8 +8,12 @@ const Navbar = () => {
         MovieScope
       </div>
       <div className='flex gap-15 '>
-        <span className='text-xl hover:text-(--white) hover:cursor-pointer'>Home</span>
-        <span className='text-xl hover:text-(--white) hover:cursor-pointer'>Favourites</span>
+        <span className='text-xl hover:text-(--white) hover:cursor-pointer'>
+          <Link to="/">Home</Link>
+        </span>
+        <span className='text-xl hover:text-(--white) hover:cursor-pointer'>
+          <Link to="/favourites">Favourites</Link>
+        </span>
       </div>
     </div>
   )
