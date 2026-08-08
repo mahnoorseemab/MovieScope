@@ -56,7 +56,7 @@ const HomePage = () => {
 
                 <div className='flex justify-center font-bold text-3xl'>Popular Shows</div>
                 <div className='flex gap-2 w-[100vw]'>
-                    {moviesArray.map((movies) => <MovieCard key={movies.id} movies={movies}/>)}
+                    {moviesArray.map((movie) => <MovieCard key={movie.id} movie={movie}/>)}
                 </div>
             </div>
         )

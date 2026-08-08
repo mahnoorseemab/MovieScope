@@ -4,6 +4,8 @@ import HomePage from './components/HomePage'
 import Favourites from './components/Favourites'
 
 function App() {
+const [addToFavourites, setAddToFavourites] = useState([])
+const [removeFromFavourites, setRemoveFromFavourites] = useState("")
 
   return (
     <>

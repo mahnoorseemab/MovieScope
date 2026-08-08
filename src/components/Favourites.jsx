@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-const Favourites = () => {
+const Favourites = ({movie}) => {
   return (
     <div className="flex flex-col">
       <span>Favourites</span>
