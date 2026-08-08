@@ -3,7 +3,7 @@ import addToFavourites from '../assets/emptyheart.svg'
 import { Link, Links } from 'react-router-dom'
 import Favourites from './Favourites.jsx'
 
-const MovieCard = ({ key, movie }) => {
+const MovieCard = ({ key, movie , handleAddToFavourites}) => {
   return (
     <div className="flex flex-col gap-3  w-[20vw] h-[50vh]">
       <div className=" flex gap-3 rounded-xl w-[11vw] h-[34vh]"><img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt="" srcSet="" /></div>
@@ -13,7 +13,7 @@ const MovieCard = ({ key, movie }) => {
         <span>
           <img className='hover:cursor-pointer' src={addToFavourites} alt=""
             onClick={(key) => {
-              console.log(movie)
+              handleAddToFavourites(movie)
             }
             }
           />

@@ -2,16 +2,22 @@ import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import HomePage from './components/HomePage'
 import Favourites from './components/Favourites'
+import MovieCard from './components/MovieCard'
 
 function App() {
-const [addToFavourites, setAddToFavourites] = useState([])
-const [removeFromFavourites, setRemoveFromFavourites] = useState("")
+const [favourites, setFavourites] = useState([])
 
-  return (
+
+const handleAddToFavourites = (movie)=>{
+  setFavourites([...favourites, movie])
+}
+console.log(favourites)
+
+return (
     <>
       <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/favourites' element={<Favourites />} />
+        <Route path='/' element={<HomePage handleAddToFavourites={handleAddToFavourites}/>} />
+        <Route path='/favourites' element={<Favourites  favourites={favourites}/>} />
       </Routes>
     </>
   )

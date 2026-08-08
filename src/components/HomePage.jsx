@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import LoadingSpinner from './LoadingSpinner'
 import MovieCard from './MovieCard'
 
-const HomePage = () => {
+const HomePage = ({handleAddToFavourites}) => {
     const [loadingState, setLoadingState] = useState(true)
     const [searchInput, setSearchInput] = useState("")
     const [moviesArray, setMoviesArray] = useState([])
@@ -56,7 +56,7 @@ const HomePage = () => {
 
                 <div className='flex justify-center font-bold text-3xl'>Popular Shows</div>
                 <div className='flex gap-2 w-[100vw]'>
-                    {moviesArray.map((movie) => <MovieCard key={movie.id} movie={movie}/>)}
+                    {moviesArray.map((movie) => <MovieCard key={movie.id} movie={movie} handleAddToFavourites={handleAddToFavourites}/>)}
                 </div>
             </div>
         )
