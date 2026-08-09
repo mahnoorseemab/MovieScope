@@ -5,7 +5,7 @@ import MovieCard from './MovieCard'
 const Favourites = ({ favourites }) => {
   return (
     <div className="flex flex-col">
-      <div>
+      <div>Titles
         {favourites.map((favourite) => <MovieCard />)}
       </div>
       <span className="border-2 p-1 w-fit hover:cursor-pointer active:scale-95 transition-all">
