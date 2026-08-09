@@ -4,7 +4,7 @@ import Favourites from './Favourites.jsx'
 import { useNavigate } from 'react-router-dom'
 
 const MovieCard = ({ key, movie, handleAddToFavourites }) => {
-  
+
   const navigate = useNavigate()
 
   return (
@@ -16,8 +16,8 @@ const MovieCard = ({ key, movie, handleAddToFavourites }) => {
         <span>
           <img className='hover:cursor-pointer' src={addToFavourites} alt=""
             onClick={(key) => {
-              navigate('/favourites')
               handleAddToFavourites(movie)
+              navigate('/favouritesCard')
             }
             }
           />

@@ -1,16 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import MovieCard from './MovieCard'
+import FavouritesCard from './FavouritesCard'
 
 const Favourites = ({ favourites }) => {
   return (
     <div className="flex flex-col">
-      <div>Titles
-        {favourites.map((favourite) => <MovieCard />)}
+      <div className='border-2'>
+        {favourites.map((favourite) => <FavouritesCard favourite={favourite}/>)}
       </div>
-      <span className="border-2 p-1 w-fit hover:cursor-pointer active:scale-95 transition-all">
-        <Link to="/">Back to Home</Link>
-      </span>
     </div>
   )
 }
