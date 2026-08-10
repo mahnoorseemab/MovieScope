@@ -2,6 +2,7 @@ import { useState } from 'react'
 import addToFavourites from '../assets/emptyheart.svg'
 import Favourites from './Favourites.jsx'
 import { useNavigate } from 'react-router-dom'
+import FavouritesCard from './FavouritesCard.jsx'
 
 const MovieCard = ({ key, movie, handleAddToFavourites }) => {
 
@@ -17,7 +18,7 @@ const MovieCard = ({ key, movie, handleAddToFavourites }) => {
           <img className='hover:cursor-pointer' src={addToFavourites} alt=""
             onClick={(key) => {
               handleAddToFavourites(movie)
-              navigate('/favouritesCard')
+              navigate('/favourites')
             }
             }
           />

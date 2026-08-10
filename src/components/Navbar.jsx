@@ -12,7 +12,7 @@ const Navbar = () => {
           <Link to="/">Home</Link>
         </span>
         <span className='text-xl hover:text-(--white) hover:cursor-pointer'>
-          <Link to="/favouritesCard">Favourites</Link>
+          <Link to="/favourites">Favourites</Link>
         </span>
       </div>
     </div>

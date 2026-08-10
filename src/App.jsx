@@ -16,13 +16,11 @@ function App() {
 
   return (
     <>
-      <Favourites favourites={favourites} />
       <Routes>
         <Route path='/' element={<HomePage handleAddToFavourites={handleAddToFavourites} />} />
-        <Route path='/favouritesCard' element={<FavouritesCard />} />
+        <Route path='/favourites' element={<Favourites favourites={favourites} />} />
       </Routes>
     </>
   )
 }
-
 export default App
