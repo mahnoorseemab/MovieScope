@@ -7,8 +7,8 @@ const Favourites = ({ favourites }) => {
   const navigate = useNavigate()
 
   return (
-    <div className="flex flex-col">
-      <div className='border-2 flex'>
+    <div className="flex flex-col p-4">
+      <div className='flex border-2'>
         {favourites.map((favourite) => <FavouritesCard favourite={favourite} key={favourite.id} />)}
       </div>
       <div className='border-2 w-fit active:scale-95 transition-all hover:cursor-pointer'>
@@ -17,5 +17,4 @@ const Favourites = ({ favourites }) => {
     </div>
   )
 }
-
 export default Favourites
