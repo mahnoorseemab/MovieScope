@@ -8,7 +8,6 @@ import FavouritesCard from './components/FavouritesCard'
 function App() {
   const [favourites, setFavourites] = useState([])
 
-
   const handleAddToFavourites = (movie) => {
     setFavourites([...favourites, movie])
   }
