@@ -10,7 +10,13 @@ const FavouritesCard = ({ favourite, key }) => {
                 <div className="w-[11vw] font-bold hover:cursor-pointer hover:text-underline">{favourite.title}</div>
                 <div className='w-[11vw]'>Release Date: {favourite.release_date}</div>
                 <div>
-                    <img src={removeFromFavourites} className='hover:cursor-pointer' title='Remove from Favourites' alt="" />
+                    <img src={removeFromFavourites} className='hover:cursor-pointer' title='Remove from Favourites' alt=""
+                        onClick={(key) => {
+                         console.log(favourite.id)
+                         
+                        }
+                        }
+                    />
                 </div>
             </div>
         </div>
