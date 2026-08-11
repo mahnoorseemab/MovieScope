@@ -11,8 +11,8 @@ function App() {
     setFavourites([...favourites, movie])
   }
 
-  const handleRemoveFromFavourites = (favourite) => {
-    setFavourites(favourites.filter((removeMovie) => (removeMovie.id) == (favourite.id)))
+  const handleRemoveFromFavourites = (id) => {
+    setFavourites(favourites.filter((removeMovie) => (removeMovie.id) !== (id)))
   }
 
   return (
