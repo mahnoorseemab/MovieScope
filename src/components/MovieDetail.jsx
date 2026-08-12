@@ -1,9 +1,11 @@
 import React from 'react'
 
-const MovieDetail = () => {
+const MovieDetail = ({ moviesArray }) => {
   return (
     <div className='border-2 p-4 m-2'>
-      MovieDetail
+      <div>
+        Movie Title: {moviesArray.title}
+      </div>
     </div>
   )
 }

@@ -22,7 +22,6 @@ function App() {
     getPopularMovies()
   }, [])
 
-
   const handleAddToFavourites = (movie) => {
     setFavourites([...favourites, movie])
   }
@@ -32,8 +31,9 @@ function App() {
   }
 
   const handleMovieDetail = (id) => {
-    setFavourites(favourites.find((specificMovie) => (specificMovie.id) === (id)))
+    setMoviesArray(moviesArray.find((specificMovie) => (specificMovie.id) === (id)))
   }
+  console.log("specificMovie")
 
   return (
     <>
@@ -41,7 +41,7 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage handleAddToFavourites={handleAddToFavourites} loadingState={loadingState} moviesArray={moviesArray} />} />
           <Route path='/favourites' element={<Favourites favourites={favourites} />} />
-          <Route path='/moviedetail' element={<MovieDetail />} />
+          <Route path='/moviedetail' element={<MovieDetail moviesArray={moviesArray}/>} />
         </Routes>
       </FavouritesContext.Provider>
     </>

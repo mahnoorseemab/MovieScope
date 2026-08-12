@@ -7,7 +7,7 @@ import FavouritesContext from '../context/FavouritesContext'
 const Favourites = ({ favourites }) => {
 
   const navigate = useNavigate()
-
+  
   return (
     <div className="flex flex-col p-4">
       <div className='flex border-2'>
