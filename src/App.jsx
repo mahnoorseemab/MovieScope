@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import HomePage from './components/HomePage'
 import Favourites from './components/Favourites'
 import FavouritesContext from './context/FavouritesContext'
+import MovieDetail from './components/MovieDetail'
 
 function App() {
   const [favourites, setFavourites] = useState([])
@@ -21,6 +22,7 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage handleAddToFavourites={handleAddToFavourites} />} />
           <Route path='/favourites' element={<Favourites favourites={favourites} />} />
+          <Route path='/moviedetail' element={<MovieDetail/>}/>
         </Routes>
       </FavouritesContext.Provider>
     </>
