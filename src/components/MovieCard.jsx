@@ -3,15 +3,18 @@ import addToFavourites from '../assets/emptyheart.svg'
 import Favourites from './Favourites.jsx'
 import { useNavigate } from 'react-router-dom'
 import FavouritesCard from './FavouritesCard.jsx'
+import { useContext } from 'react'
+import FavouritesContext from '../context/FavouritesContext.jsx'
 
 const MovieCard = ({ key, movie, handleAddToFavourites }) => {
 
   const navigate = useNavigate()
+  const { handleMovieDetail } = useContext(FavouritesContext)
 
   return (
     <div className="flex flex-col gap-3  w-[20vw] h-[50vh]">
       <div className='hover:cursor-pointer' onClick={(key) => {
-        
+        handleMovieDetail(movie.id)
         navigate('/moviedetail')
       }}>
         <div className=" flex gap-3 rounded-xl w-[11vw] h-[34vh]"><img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt="" srcSet="" /></div>

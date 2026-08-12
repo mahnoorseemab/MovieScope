@@ -5,21 +5,8 @@ import { useEffect } from 'react'
 import LoadingSpinner from './LoadingSpinner'
 import MovieCard from './MovieCard'
 
-const HomePage = ({ handleAddToFavourites }) => {
-    const [loadingState, setLoadingState] = useState(true)
+const HomePage = ({ handleAddToFavourites, loadingState, moviesArray }) => {
     const [searchInput, setSearchInput] = useState("")
-    const [moviesArray, setMoviesArray] = useState([])
-
-    useEffect(() => {
-        async function getPopularMovies() {
-            const popMovies = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${import.meta.env.VITE_TMDB_API_KEY}`)
-            const popularMovies = await popMovies.json()
-            setMoviesArray(popularMovies.results)
-            setLoadingState(false)
-            console.log(popularMovies)
-        }
-        getPopularMovies()
-    }, [])
 
     if (loadingState == true) {
         return (
