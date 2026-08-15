@@ -12,7 +12,7 @@ const MovieCard = ({ key, movie, handleAddToFavourites }) => {
 
   return (
     <div className="flex flex-col gap-3  w-[20vw] h-[50vh]">
-      <div className='hover:cursor-pointer' onClick={(key) => {
+      <div className='hover:cursor-pointer' onClick={() => {
         navigate(`/moviedetail/${movie.id}`)
       }}>
         <div className=" flex gap-3 rounded-xl w-[11vw] h-[34vh]"><img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt="" srcSet="" /></div>

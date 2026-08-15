@@ -6,12 +6,15 @@ const MovieDetail = ({ moviesArray }) => {
   const specificMovie = moviesArray.find((movie) => (movie.id) === Number(id))
 
   return (
-    <div className='border-2 p-4 m-2'>
-      <div>
-        Movie Title: {specificMovie.title}
+    <div>
+      <div className='flex flex-col'>
+        <span><img className='w-[11vw] h-[34vh]' src={`https://image.tmdb.org/t/p/original${specificMovie.poster_path}`} alt="" /></span>
+        <span> Movie Title: {specificMovie.title}</span>
+        <span> Release Date: {specificMovie.release_date} </span>
       </div>
     </div>
   )
 }
+
 
 export default MovieDetail
