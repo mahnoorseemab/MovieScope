@@ -30,18 +30,13 @@ function App() {
     setFavourites(favourites.filter((removeMovie) => (removeMovie.id) !== (id)))
   }
 
-  const handleMovieDetail = (id) => {
-    setMoviesArray(moviesArray.find((specificMovie) => (specificMovie.id) === (id)))
-  }
-  console.log("specificMovie")
-
   return (
     <>
-      <FavouritesContext.Provider value={{ favourites, handleRemoveFromFavourites, handleMovieDetail }}>
+      <FavouritesContext.Provider value={{ favourites, handleRemoveFromFavourites }}>
         <Routes>
           <Route path='/' element={<HomePage handleAddToFavourites={handleAddToFavourites} loadingState={loadingState} moviesArray={moviesArray} />} />
           <Route path='/favourites' element={<Favourites favourites={favourites} />} />
-          <Route path='/moviedetail' element={<MovieDetail moviesArray={moviesArray}/>} />
+          <Route path='/moviedetail/:id' element={<MovieDetail moviesArray={moviesArray} />} />
         </Routes>
       </FavouritesContext.Provider>
     </>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import FavouritesCard from './FavouritesCard'
 import { useContext } from 'react'
+import FavouritesCard from './FavouritesCard'
 import FavouritesContext from '../context/FavouritesContext'
 
 const Favourites = ({ favourites }) => {
