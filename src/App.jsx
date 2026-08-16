@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
+import { useEffect } from 'react'
 import HomePage from './components/HomePage'
 import Favourites from './components/Favourites'
 import FavouritesContext from './context/FavouritesContext'
 import MovieDetail from './components/MovieDetail'
-import { useEffect } from 'react'
+import SearchedDataCard from './components/SearchedDataCard'
 
 function App() {
   const [loadingState, setLoadingState] = useState(true)

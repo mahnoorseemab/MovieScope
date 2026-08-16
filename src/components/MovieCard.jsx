@@ -6,7 +6,7 @@ import Favourites from './Favourites.jsx'
 import FavouritesCard from './FavouritesCard.jsx'
 import FavouritesContext from '../context/FavouritesContext.jsx'
 
-const MovieCard = ({ key, movie, handleAddToFavourites }) => {
+const MovieCard = ({ movie, handleAddToFavourites }) => {
 
   const navigate = useNavigate()
 
@@ -23,7 +23,7 @@ const MovieCard = ({ key, movie, handleAddToFavourites }) => {
       <div className='flex gap-3'>
         <span>
           <img className='hover:cursor-pointer' title='Add to Favourites' src={addToFavourites} alt=""
-            onClick={(key) => {
+            onClick={() => {
               handleAddToFavourites(movie)
               navigate('/favourites')
             }

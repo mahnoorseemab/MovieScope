@@ -1,12 +1,16 @@
-import React from 'react'
-import Navbar from './Navbar'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import React from 'react'
+import Navbar from './Navbar'
 import LoadingSpinner from './LoadingSpinner'
 import MovieCard from './MovieCard'
+import SearchedDataCard from './SearchedDataCard'
+import { useNavigate } from 'react-router-dom'
 
 const HomePage = ({ handleAddToFavourites, loadingState, moviesArray }) => {
     const [searchInput, setSearchInput] = useState("")
+    const [searchedData, setSearchedData] = useState([])
+
 
     if (loadingState == true) {
         return (
@@ -33,12 +37,16 @@ const HomePage = ({ handleAddToFavourites, loadingState, moviesArray }) => {
                                         const res = await fetch(`https://api.themoviedb.org/3/search/movie?query=${searchInput}&api_key=${import.meta.env.VITE_TMDB_API_KEY}`)
                                         const data = await res.json()
                                         console.log(data)
+                                        setSearchedData(data.results)
                                     }
                                     onhandlekey()
                                 }
                             }
                         }
                     />
+                </div>
+                <div className='border-2'>
+                    {searchedData.map((data) => <SearchedDataCard data={data} key={data.id} />)}
                 </div>
 
                 <div className='flex justify-center font-bold text-3xl'>Popular Shows</div>
