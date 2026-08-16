@@ -1,16 +1,13 @@
 import { useState } from 'react'
-import { useEffect } from 'react'
-import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import Navbar from './Navbar'
 import LoadingSpinner from './LoadingSpinner'
 import MovieCard from './MovieCard'
-import SearchedDataCard from './SearchedDataCard'
-import { useNavigate } from 'react-router-dom'
 
-const HomePage = ({ handleAddToFavourites, loadingState, moviesArray }) => {
+const HomePage = ({ handleAddToFavourites, loadingState, moviesArray, setSearchedData }) => {
     const [searchInput, setSearchInput] = useState("")
-    const [searchedData, setSearchedData] = useState([])
 
+    const navigate = useNavigate()
 
     if (loadingState == true) {
         return (
@@ -38,15 +35,13 @@ const HomePage = ({ handleAddToFavourites, loadingState, moviesArray }) => {
                                         const data = await res.json()
                                         console.log(data)
                                         setSearchedData(data.results)
+                                        navigate('/SearchResult')
                                     }
                                     onhandlekey()
                                 }
                             }
                         }
                     />
-                </div>
-                <div className='border-2'>
-                    {searchedData.map((data) => <SearchedDataCard data={data} key={data.id} />)}
                 </div>
 
                 <div className='flex justify-center font-bold text-3xl'>Popular Shows</div>

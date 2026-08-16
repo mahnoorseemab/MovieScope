@@ -1,10 +1,5 @@
-import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useContext } from 'react'
 import addToFavourites from '../assets/emptyheart.svg'
-import Favourites from './Favourites.jsx'
-import FavouritesCard from './FavouritesCard.jsx'
-import FavouritesContext from '../context/FavouritesContext.jsx'
 
 const MovieCard = ({ movie, handleAddToFavourites }) => {
 
