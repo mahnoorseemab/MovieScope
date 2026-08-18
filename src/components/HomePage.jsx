@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import Navbar from './Navbar'
 import LoadingSpinner from './LoadingSpinner'
 import MovieCard from './MovieCard'
+import { searchIcon } from '../assets/search_icon.svg'
 
 const HomePage = ({ handleAddToFavourites, loadingState, moviesArray, setSearchedData }) => {
     const [searchInput, setSearchInput] = useState("")
@@ -22,7 +23,7 @@ const HomePage = ({ handleAddToFavourites, loadingState, moviesArray, setSearche
                     <input
                         className='p-3 w-[40vw] rounded-2xl bg-white/10 backdrop-blur-md border border-[#E63946]/40 focus:outline-none focus:border-[#E63946] focus:ring-2 focus:ring-[#E63946]/30 transition-all duration-300'
                         type="text"
-                        placeholder='Search your favourite movie here!'
+                        placeholder='Search movies here!'
                         value={searchInput}
                         onChange={(e) => {
                             setSearchInput(e.target.value)
@@ -42,6 +43,7 @@ const HomePage = ({ handleAddToFavourites, loadingState, moviesArray, setSearche
                             }
                         }
                     />
+                    <img src={searchIcon} alt="" srcset="" />
                 </div>
 
                 <div className='flex justify-center font-bold text-3xl'>Popular Shows</div>

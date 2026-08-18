@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
-    <div className='flex bg-(--red) w-[100vw] h-[20vh] justify-around items-center'>
+    <div className='flex bg-(--red) w-[100vw] h-[18vh] justify-around items-center'>
       <div className='flex flex-col text-3xl font-extrabold tracking-widest uppercase text-black' style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.3)' }}>
         <span className='text-black'>Movie</span>
         <span className='text-black'>Scope</span>
