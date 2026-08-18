@@ -1,10 +1,8 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
 import removeFromFavourites from '../assets/red-heart.svg'
 import { useContext } from 'react'
 import FavouritesContext from '../context/FavouritesContext'
 
-const FavouritesCard = ({ favourite, key }) => {
+const FavouritesCard = ({ favourite }) => {
     const { handleRemoveFromFavourites } = useContext(FavouritesContext)
     return (
         <div>
@@ -14,7 +12,7 @@ const FavouritesCard = ({ favourite, key }) => {
                 <div className='w-[11vw]'>Release Date: {favourite.release_date}</div>
                 <div>
                     <img src={removeFromFavourites} className='hover:cursor-pointer' title='Remove from Favourites' alt=""
-                        onClick={(key) => {
+                        onClick={() => {
                             handleRemoveFromFavourites(favourite.id)
                             console.log(favourite.id)
                         }
