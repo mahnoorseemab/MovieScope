@@ -2,16 +2,24 @@ import SearchedDataCard from './SearchedDataCard'
 import { Link } from 'react-router-dom'
 
 const SearchResult = ({ searchedData }) => {
-    return (
-        <div>
-            <div className='border-2'>
-                {searchedData.map((data) => <SearchedDataCard data={data} key={data.id} />)}
+    if (searchedData.length == 0) {
+        return (
+            <div>
+                No result found
             </div>
-            <div className='border-2 w-fit active:scale-95 transition-all hover:cursor-pointer'>
-                <Link to="/">Back to Home</Link>
+        )
+    } else {
+        return (
+            <div>
+                <div className='border-2'>
+                    {searchedData.map((data) => <SearchedDataCard data={data} key={data.id} />)}
+                </div>
+                <div className='border-2 w-fit active:scale-95 transition-all hover:cursor-pointer'>
+                    <Link to="/">Back to Home</Link>
+                </div>
             </div>
-        </div>
-    )
-
+        )
+    }
 }
+
 export default SearchResult

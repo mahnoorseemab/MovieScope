@@ -45,7 +45,7 @@ const HomePage = ({ handleAddToFavourites, loadingState, moviesArray, setSearche
                                 }
                             }
                         />
-                        <img src={searchIcon} className='w-7 h-7  absolute right-3 hover:cursor-pointer m-2.5' alt="" srcset=""
+                        <img src={searchIcon} className='w-7 h-7  absolute right-3 hover:cursor-pointer m-2.5' alt=""
                             onClick={() => {
                                 handleSearch()
                             }} />
