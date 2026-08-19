@@ -17,7 +17,6 @@ const HomePage = ({ handleAddToFavourites, loadingState, moviesArray, setSearche
         setSearchedData(data.results)
         navigate('/SearchResult')
     }
-
     if (loadingState == true) {
         return (
             <LoadingSpinner />
@@ -52,7 +51,10 @@ const HomePage = ({ handleAddToFavourites, loadingState, moviesArray, setSearche
                     </div>
                 </div>
 
-                <div className='flex justify-center font-bold text-3xl'>Popular Shows</div>
+                <div className='flex justify-center gap-2 font-extrabold text-4xl tracking-widest uppercase'>
+                    <span className='text-black'>Popular </span>
+                    <span className='text-[#E63946]'>Shows</span>
+                </div>
                 <div className='flex gap-2 w-[100vw]'>
                     {moviesArray.map((movie) => <MovieCard key={movie.id} movie={movie} handleAddToFavourites={handleAddToFavourites} />)}
                 </div>

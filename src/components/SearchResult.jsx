@@ -1,5 +1,4 @@
 import SearchedDataCard from './SearchedDataCard'
-import { Link } from 'react-router-dom'
 import BackButton from './BackButton'
 
 const SearchResult = ({ searchedData }) => {
@@ -11,7 +10,7 @@ const SearchResult = ({ searchedData }) => {
                     No Results Found
                 </h2>
                 <p className='text-sm text-gray-500'>
-                    Try searching for something else
+                    Go back to home and try searching for something else
                 </p>
                 <BackButton />
             </div>
@@ -19,7 +18,7 @@ const SearchResult = ({ searchedData }) => {
     } else {
         return (
             <div>
-                <div className='border-2'>
+                <div className='flex border-2'>
                     {searchedData.map((data) => <SearchedDataCard data={data} key={data.id} />)}
                 </div>
                 <BackButton />

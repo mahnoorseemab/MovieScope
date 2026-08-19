@@ -1,6 +1,9 @@
 const SearchedDataCard = ({ data }) => {
     return (
-        <div style={{ color: 'black', fontSize: '30px' }} >Movie Title: {data.title} </div>
+        <div className="flex">
+            <span>Card:</span>
+            <span>Movie Title: {data.title}</span>
+        </div>
     )
 }
 
