@@ -10,7 +10,7 @@ const MovieCard = ({ movie, handleAddToFavourites }) => {
       <div className='hover:cursor-pointer' onClick={() => {
         navigate(`/moviedetail/${movie.id}`)
       }}>
-        <div className=" flex gap-3 rounded-xl w-[11vw] h-[34vh]"><img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt="" srcSet="" /></div>
+        <div className=" flex gap-3 rounded-xl w-[11vw] h-[34vh]"><img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt="" /></div>
         <div className="w-[11vw] font-bold hover:underline">{movie.title}</div>
       </div>
 
