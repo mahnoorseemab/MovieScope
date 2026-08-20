@@ -9,7 +9,7 @@ const HomePage = ({ handleAddToFavourites, loadingState, moviesArray, setSearche
     const [searchInput, setSearchInput] = useState("")
 
     const navigate = useNavigate()
-    
+
     async function handleSearch() {
         const res = await fetch(`https://api.themoviedb.org/3/search/movie?query=${searchInput}&api_key=${import.meta.env.VITE_TMDB_API_KEY}`)
         const data = await res.json()
@@ -55,7 +55,7 @@ const HomePage = ({ handleAddToFavourites, loadingState, moviesArray, setSearche
                     <span className='text-black'>Popular </span>
                     <span className='text-[#E63946]'>Shows</span>
                 </div>
-                <div className='flex gap-2 w-[100vw]'>
+                <div className='flex w-[100vw]'>
                     {moviesArray.map((movie) => <MovieCard key={movie.id} movie={movie} handleAddToFavourites={handleAddToFavourites} />)}
                 </div>
             </div>

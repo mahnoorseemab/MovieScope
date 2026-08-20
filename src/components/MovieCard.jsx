@@ -6,25 +6,25 @@ const MovieCard = ({ movie, handleAddToFavourites }) => {
   const navigate = useNavigate()
 
   return (
-    <div className="flex flex-col gap-3  w-[20vw] h-[50vh]">
-      <div className='hover:cursor-pointer' onClick={() => {
-        navigate(`/moviedetail/${movie.id}`)
-      }}>
-        <div className=" flex gap-3 rounded-xl w-[11vw] h-[34vh]"><img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt="" /></div>
-        <div className="w-[11vw] font-bold hover:underline">{movie.title}</div>
-      </div>
-
-      <div className='w-[11vw]'>Release Date: {movie.release_date}</div>
-      <div className='flex gap-3'>
-        <span>
-          <img className='hover:cursor-pointer' title='Add to Favourites' src={addToFavourites} alt=""
-            onClick={() => {
-              handleAddToFavourites(movie)
-              navigate('/favourites')
-            }
-            }
-          />
-        </span>
+    <div>
+      <div className="flex flex-col w-[12vw] h-[50vh]">
+        <div className='hover:cursor-pointer' onClick={() => {
+          navigate(`/moviedetail/${movie.id}`)
+        }}>
+          <div className="flex rounded-xl h-[34vh]"><img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt="" /></div>
+          <div className="font-bold hover:underline flex-wrap">{movie.title}</div>
+        </div>
+        <div>{movie.release_date}</div>
+        <div className='flex gap-3'>
+          <span>
+            <img className='hover:cursor-pointer' title='Add to Favourites' src={addToFavourites} alt=""
+              onClick={() => {
+                handleAddToFavourites(movie)
+                navigate('/favourites')
+              }}
+            />
+          </span>
+        </div>
       </div>
     </div>
   )
