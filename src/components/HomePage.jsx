@@ -7,7 +7,6 @@ import searchIcon from '../assets/search_icon.svg'
 
 const HomePage = ({ handleAddToFavourites, loadingState, moviesArray, setSearchedData }) => {
     const [searchInput, setSearchInput] = useState("")
-
     const navigate = useNavigate()
 
     async function handleSearch() {
@@ -55,7 +54,7 @@ const HomePage = ({ handleAddToFavourites, loadingState, moviesArray, setSearche
                     <span className='text-black'>Popular </span>
                     <span className='text-[#E63946]'>Shows</span>
                 </div>
-                <div className='flex w-[100vw]'>
+                <div className='flex w-full'>
                     {moviesArray.map((movie) => <MovieCard key={movie.id} movie={movie} handleAddToFavourites={handleAddToFavourites} />)}
                 </div>
             </div>
@@ -64,4 +63,6 @@ const HomePage = ({ handleAddToFavourites, loadingState, moviesArray, setSearche
 }
 
 export default HomePage
+
+
 
