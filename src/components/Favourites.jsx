@@ -1,16 +1,15 @@
-import { Link} from 'react-router-dom'
 import FavouritesCard from './FavouritesCard'
-
+import BackButton from './BackButton'
 
 const Favourites = ({ favourites }) => {
 
   return (
     <div className="flex flex-col p-4">
-      <div className='flex border-2'>
+      <div className='flex flex-wrap'>
         {favourites.map((favourite) => <FavouritesCard favourite={favourite} key={favourite.id} />)}
       </div>
-      <div className='border-2 w-fit active:scale-95 transition-all hover:cursor-pointer'>
-        <Link to="/">Back to Home</Link>
+      <div className='w-fit'>
+      <BackButton/>
       </div>
     </div>
   )

@@ -19,8 +19,7 @@ const HomePage = ({ handleAddToFavourites, loadingState, moviesArray, setSearche
     if (loadingState == true) {
         return (
             <LoadingSpinner />
-        )
-    }
+        )}
     else {
         return (
             <div className='flex flex-col gap-10'>
