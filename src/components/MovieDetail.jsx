@@ -6,19 +6,19 @@ const MovieDetail = ({ moviesArray }) => {
 
   return (
     <div>
-      <div className='flex flex-colrelative min-h-screen'>
-        <span><img className='absolute w-full object-contain overflow-hidden opacity-50' src={`https://image.tmdb.org/t/p/original${specificMovie.poster_path}`} alt="" /></span>
-        <div>
+      <div className='relative min-h-screen overflow-hidden'>
+        <img className='absolute object-cover opacity-70 blur-sm inset-0 w-full' src={`https://image.tmdb.org/t/p/original${specificMovie.poster_path}`} alt="" />
 
+        <div className='flex'>
+          <img className='h-screen p-6' src={`https://image.tmdb.org/t/p/original${specificMovie.poster_path}`} alt="" />
           <span>{specificMovie.title}</span>
-          <span>{specificMovie.popularity} </span>
-          <span>  {specificMovie.release_date} </span>
-          <span> {specificMovie.overview}</span>
-          <span> {specificMovie.vote_average}</span>
-          <span> {specificMovie.vote_count}</span>
+          <span>{specificMovie.popularity}</span>
+          <span>{specificMovie.release_date}</span>
+          <span>{specificMovie.overview}</span>
+          <span>{specificMovie.vote_average}</span>
+          <span>{specificMovie.vote_count}</span>
         </div>
       </div>
-
     </div>
   )
 }
