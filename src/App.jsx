@@ -15,20 +15,6 @@ function App() {
   const [searchedData, setSearchedData] = useState([])
 
   useEffect(() => {
-    const saveFavorites = JSON.stringify(favourites)
-    const favouritesString = localStorage.setItem("favouritesArray", saveFavorites)
-    return favouritesString
-  }, [favourites])
-
-  function handleFavouritesArray(favouritesString) {
-    if (favouritesString === null) {
-      return []
-    } else {
-      return favouritesString
-    }
-  }
-
-  useEffect(() => {
     async function getPopularMovies() {
       const popMovies = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${import.meta.env.VITE_TMDB_API_KEY}`)
       const popularMovies = await popMovies.json()
@@ -37,6 +23,20 @@ function App() {
     }
     getPopularMovies()
   }, [])
+
+  useEffect(() => {
+    const saveFavorites = JSON.stringify(favourites)
+    localStorage.setItem("favouritesArray", saveFavorites)
+  }, [favourites])
+
+  function handleFavouritesArray() {
+    const stored = localStorage.getItem("saveFavorites")
+    if (stored) {
+      return JSON.parse(stored)
+    } else {
+      return []
+    }
+  }
 
   const handleAddToFavourites = (movie) => {
     setFavourites([...favourites, movie])

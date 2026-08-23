@@ -5,8 +5,6 @@ import FavouritesContext from '../context/FavouritesContext'
 const FavouritesCard = ({ favourite }) => {
     const { handleRemoveFromFavourites } = useContext(FavouritesContext)
 
-    localStorage.setItem(favourite)
-
     return (
         <div>
             <div className="flex flex-col w-[12vw] min-w-[160px] gap-2 rounded-xl p-2 shadow-md hover:shadow-lg hover:scale-105 transition-all duration-200 bg-white">
