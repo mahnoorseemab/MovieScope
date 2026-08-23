@@ -1,9 +1,13 @@
 import { useNavigate } from 'react-router-dom'
 import addToFavourites from '../assets/emptyheart.svg'
+import removeFromFavourites from '../assets/red-heart.svg'
+import { useContext } from 'react'
+import FavouritesContext from '../context/FavouritesContext'
 
 const MovieCard = ({ movie, handleAddToFavourites }) => {
-
   const navigate = useNavigate()
+  const { favourites, handleRemoveFromFavourites } = useContext(FavouritesContext)
+  const favCard = favourites.some((fav) => (fav.id) === (movie.id))
 
   return (
     <div>
@@ -23,19 +27,17 @@ const MovieCard = ({ movie, handleAddToFavourites }) => {
             {movie.title}
           </div>
         </div>
-
         <div className='text-xs text-gray-500'>{movie.release_date}</div>
-
         <div className='flex gap-3'>
           <span>
             <img
               className='hover:cursor-pointer w-5 h-5'
-              title='Add to Favourites'
-              src={addToFavourites}
+              title={favCard ? "Remove from Favourites" : "Add to Favourites"}
+              src={favCard ? removeFromFavourites : addToFavourites}
               alt="Add to favourites"
               onClick={() => {
-                handleAddToFavourites(movie)
-                navigate('/favourites')
+                favCard ? handleRemoveFromFavourites(movie.id) : handleAddToFavourites(movie)
+                favCard ? navigate('/') : navigate('/favourites')
               }}
             />
           </span>
@@ -43,7 +45,6 @@ const MovieCard = ({ movie, handleAddToFavourites }) => {
       </div>
     </div>
   )
-
 }
 
 export default MovieCard

@@ -14,7 +14,6 @@ const FavouritesCard = ({ favourite }) => {
                     <img src={removeFromFavourites} className='hover:cursor-pointer' title='Remove from Favourites' alt=""
                         onClick={() => {
                             handleRemoveFromFavourites(favourite.id)
-                            console.log(favourite.id)
                         }
                         }
                     />

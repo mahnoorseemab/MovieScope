@@ -6,6 +6,7 @@ import Favourites from './components/Favourites'
 import FavouritesContext from './context/FavouritesContext'
 import MovieDetail from './components/MovieDetail'
 import SearchResult from './components/SearchResult'
+import MovieCard from './components/MovieCard'
 
 function App() {
   const [loadingState, setLoadingState] = useState(true)
@@ -19,7 +20,6 @@ function App() {
       const popularMovies = await popMovies.json()
       setMoviesArray(popularMovies.results)
       setLoadingState(false)
-      console.log(popularMovies)
     }
     getPopularMovies()
   }, [])
@@ -40,6 +40,7 @@ function App() {
           <Route path='/favourites' element={<Favourites favourites={favourites} />} />
           <Route path='/moviedetail/:id' element={<MovieDetail moviesArray={moviesArray} />} />
           <Route path='/searchresult' element={<SearchResult searchedData={searchedData} />} />
+          <Route path='/movieCard' element={<MovieCard />} />
         </Routes>
       </FavouritesContext.Provider>
     </>
