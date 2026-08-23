@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { Routes, Route } from 'react-router-dom'
 import { useEffect } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import HomePage from './components/HomePage'
 import Favourites from './components/Favourites'
 import FavouritesContext from './context/FavouritesContext'
@@ -11,8 +11,22 @@ import MovieCard from './components/MovieCard'
 function App() {
   const [loadingState, setLoadingState] = useState(true)
   const [moviesArray, setMoviesArray] = useState([])
-  const [favourites, setFavourites] = useState([])
+  const [favourites, setFavourites] = useState(handleFavouritesArray)
   const [searchedData, setSearchedData] = useState([])
+
+  useEffect(() => {
+    const saveFavorites = JSON.stringify(favourites)
+    const favouritesString = localStorage.setItem("favouritesArray", saveFavorites)
+    return favouritesString
+  }, [favourites])
+
+  function handleFavouritesArray(favouritesString) {
+    if (favouritesString === null) {
+      return []
+    } else {
+      return favouritesString
+    }
+  }
 
   useEffect(() => {
     async function getPopularMovies() {
