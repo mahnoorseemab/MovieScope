@@ -30,11 +30,12 @@ function App() {
   }, [favourites])
 
   function handleFavouritesArray() {
-    const stored = localStorage.getItem("saveFavorites")
-    if (stored) {
-      return JSON.parse(stored)
-    } else {
+    const stored = localStorage.getItem("favouritesArray")
+    const storedData = JSON.parse(stored)
+    if ((storedData) == null) {
       return []
+    } else {
+      return storedData
     }
   }
 
