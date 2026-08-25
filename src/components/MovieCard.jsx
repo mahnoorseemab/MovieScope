@@ -27,6 +27,7 @@ const MovieCard = ({ movie, handleAddToFavourites }) => {
             {movie.title}
           </div>
         </div>
+
         <div className='text-xs text-gray-500'>{movie.release_date}</div>
         <div className='flex gap-3'>
           <span>

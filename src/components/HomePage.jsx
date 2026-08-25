@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useRef } from 'react'
 import Navbar from './Navbar'
 import LoadingSpinner from './LoadingSpinner'
 import MovieCard from './MovieCard'
@@ -8,6 +9,7 @@ import searchIcon from '../assets/search_icon.svg'
 const HomePage = ({ handleAddToFavourites, loadingState, moviesArray, setSearchedData }) => {
     const [searchInput, setSearchInput] = useState("")
     const navigate = useNavigate()
+    const containerRef = useRef(null)
 
     async function handleSearch() {
         const res = await fetch(`https://api.themoviedb.org/3/search/movie?query=${searchInput}&api_key=${import.meta.env.VITE_TMDB_API_KEY}`)
@@ -54,7 +56,7 @@ const HomePage = ({ handleAddToFavourites, loadingState, moviesArray, setSearche
                     <span className='text-black'>Popular </span>
                     <span className='text-[#E63946]'>Shows</span>
                 </div>
-                <div className='flex w-full'>
+                <div className='flex w-full' ref={containerRef}>
                     {moviesArray.map((movie) => <MovieCard key={movie.id} movie={movie} handleAddToFavourites={handleAddToFavourites} />)}
                 </div>
             </div>
