@@ -32,7 +32,7 @@ const HomePage = ({ handleAddToFavourites, loadingState, moviesArray, setSearche
                         <input
                             className='p-3 w-[40vw] rounded-2xl bg-white/10 backdrop-blur-md border border-[#E63946]/40 focus:outline-none focus:border-[#E63946] focus:ring-2 focus:ring-[#E63946]/30 transition-all duration-300'
                             type="text"
-                            placeholder='Search movies here!'
+                            placeholder='Watch show favourite show!'
                             value={searchInput}
                             onChange={(e) => {
                                 setSearchInput(e.target.value)
