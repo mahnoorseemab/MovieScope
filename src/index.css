@@ -5,3 +5,21 @@
     --red: #E63946;
     --black: #181818;
 }
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.slider-track {
+  animation: slide 30s linear infinite;
+  width: max-content;
+}
+
+.slider-track:hover {
+  animation-play-state: paused;
+}
