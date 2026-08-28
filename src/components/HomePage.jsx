@@ -4,17 +4,42 @@ import Navbar from './Navbar'
 import LoadingSpinner from './LoadingSpinner'
 import MovieCard from './MovieCard'
 import searchIcon from '../assets/search_icon.svg'
+import { useContext } from 'react'
+import FavouritesContext from '../context/FavouritesContext'
 
 const HomePage = ({ handleAddToFavourites, loadingState, moviesArray, setSearchedData }) => {
     const [searchInput, setSearchInput] = useState("")
     const navigate = useNavigate()
+    const { setLoadingState } = useContext(FavouritesContext)
 
     async function handleSearch() {
+        setLoadingState(true)
         const res = await fetch(`https://api.themoviedb.org/3/search/movie?query=${searchInput}&api_key=${import.meta.env.VITE_TMDB_API_KEY}`)
         const data = await res.json()
         console.log(data)
         setSearchedData(data.results)
-        navigate('/SearchResult')
+        const totalMovies = data.results.length
+        let loadedCount = 0
+        data.results.forEach((movie) => {
+            const img = new Image()
+
+            img.onload = () => {
+                loadedCount++
+                if (loadedCount === totalMovies) {
+                    setLoadingState(false)
+                    navigate('/SearchResult')
+                }
+            }
+            img.onerror = () => {
+                loadedCount++;
+                if (loadedCount === totalMovies) {
+                    setLoadingState(false)
+                    navigate('/SearchResult')
+                }
+            }
+            img.src = `https://image.tmdb.org/t/p/original${movie.poster_path}`
+        }
+        )
     }
     if (loadingState == true) {
         return (
@@ -23,7 +48,7 @@ const HomePage = ({ handleAddToFavourites, loadingState, moviesArray, setSearche
     }
     else {
         return (
-            <div className='flex flex-col gap-10'>
+            <div className='flex flex-col gap-10 overflow-hidden'>
                 <Navbar />
                 <div className='flex justify-center'>
                     <div className='flex relative w-[fit]'>
@@ -54,8 +79,8 @@ const HomePage = ({ handleAddToFavourites, loadingState, moviesArray, setSearche
                     <span className='text-black'>Popular </span>
                     <span className='text-[#E63946]'>Shows</span>
                 </div>
-                <div className='flex w-full slider-track'>
-                    {[...moviesArray, ...moviesArray].map((movie) => (<MovieCard key={movie.id} movie={movie} handleAddToFavourites={handleAddToFavourites}/>))}
+                <div className='flex slider-track'>
+                    {[...moviesArray, ...moviesArray].map((movie, index) => (<MovieCard key={index} movie={movie} handleAddToFavourites={handleAddToFavourites} />))}
                 </div>
             </div>
         )

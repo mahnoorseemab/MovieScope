@@ -19,7 +19,29 @@ function App() {
       const popMovies = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${import.meta.env.VITE_TMDB_API_KEY}`)
       const popularMovies = await popMovies.json()
       setMoviesArray(popularMovies.results)
-      setLoadingState(false)
+      const totalMovies = popularMovies.results.length
+      let loadedCount = 0
+      popularMovies.results.forEach((movie) => {
+        const img = new Image()
+
+        img.onload = () => {
+          loadedCount++
+          if (loadedCount === totalMovies) {
+            setLoadingState(false)
+          }
+        }
+
+        img.onerror = () => {
+          loadedCount++;
+          if (loadedCount === totalMovies) {
+            setLoadingState(false)
+          }
+        }
+
+        img.src = `https://image.tmdb.org/t/p/original${movie.poster_path}`
+
+      }
+      )
     }
     getPopularMovies()
   }, [])
@@ -49,7 +71,7 @@ function App() {
 
   return (
     <>
-      <FavouritesContext.Provider value={{ favourites, handleRemoveFromFavourites }}>
+      <FavouritesContext.Provider value={{ favourites, handleRemoveFromFavourites, setLoadingState }}>
         <Routes>
           <Route path='/' element={<HomePage handleAddToFavourites={handleAddToFavourites} loadingState={loadingState} moviesArray={moviesArray} setSearchedData={setSearchedData} />} />
           <Route path='/favourites' element={<Favourites favourites={favourites} />} />
