@@ -17,9 +17,9 @@ A movie discovery app built with React and the TMDB API — browse popular movie
 
 ## Technical Decisions
 
--Context API for favourites & loading state — started with prop drilling, then refactored to Context once passing props through multiple component layers got messy.
--Poster preloading before render — images are preloaded in the background (tracked via a counter) before the UI reveals content, so posters don't pop in one by one after the page loads.
--localStorage persistence — favourites are persisted using lazy state initializers, so saved favourites survive a page refresh.
+Context API for favourites & loading state — started with prop drilling, then refactored to Context once passing props through multiple component layers got messy.
+Poster preloading before render — images are preloaded in the background (tracked via a counter) before the UI reveals content, so posters don't pop in one by one after the page loads.
+localStorage persistence — favourites are persisted using lazy state initializers, so saved favourites survive a page refresh.
 
 ## Tech Stack
 
