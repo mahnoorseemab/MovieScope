@@ -3,6 +3,7 @@
 A movie discovery app built with React and the TMDB API — browse popular movies, search for any title, view details, and save favourites.
 
 **Live:** https://movie-scope-black.vercel.app/
+
 **Repo:** https://github.com/mahnoorseemab/MovieScope
 
 ## Features
@@ -17,8 +18,8 @@ A movie discovery app built with React and the TMDB API — browse popular movie
 ## Tech Stack
 
 - React
-- React Router
-- Context API (favourites & loading state)
+- React Router (navigation)
+- Context API (state management)
 - Tailwind CSS
 - TMDB API
 
