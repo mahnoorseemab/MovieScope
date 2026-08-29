@@ -19,27 +19,33 @@ const HomePage = ({ handleAddToFavourites, loadingState, moviesArray, setSearche
         console.log(data)
         setSearchedData(data.results)
         const totalMovies = data.results.length
-        let loadedCount = 0
-        data.results.forEach((movie) => {
-            const img = new Image()
-
-            img.onload = () => {
-                loadedCount++
-                if (loadedCount === totalMovies) {
-                    setLoadingState(false)
-                    navigate('/SearchResult')
-                }
-            }
-            img.onerror = () => {
-                loadedCount++;
-                if (loadedCount === totalMovies) {
-                    setLoadingState(false)
-                    navigate('/SearchResult')
-                }
-            }
-            img.src = `https://image.tmdb.org/t/p/original${movie.poster_path}`
+        if (totalMovies === 0) {
+            setLoadingState(false)
+            navigate('/SearchResult')
         }
-        )
+        else {
+            let loadedCount = 0
+            data.results.forEach((movie) => {
+                const img = new Image()
+
+                img.onload = () => {
+                    loadedCount++
+                    if (loadedCount === totalMovies) {
+                        setLoadingState(false)
+                        navigate('/SearchResult')
+                    }
+                }
+                img.onerror = () => {
+                    loadedCount++;
+                    if (loadedCount === totalMovies) {
+                        setLoadingState(false)
+                        navigate('/SearchResult')
+                    }
+                }
+                img.src = `https://image.tmdb.org/t/p/original${movie.poster_path}`
+            }
+            )
+        }
     }
     if (loadingState == true) {
         return (
@@ -68,14 +74,14 @@ const HomePage = ({ handleAddToFavourites, loadingState, moviesArray, setSearche
                                 }
                             }
                         />
-                        <img src={searchIcon} className='w-7 h-7  absolute right-3 hover:cursor-pointer m-2.5' alt=""
+                        <img src={searchIcon} className='w-7 h-7  md:absolute right-3 hover:cursor-pointer m-2.5' alt=""
                             onClick={() => {
                                 handleSearch()
                             }} />
                     </div>
                 </div>
 
-                <div className='flex justify-center gap-2 font-extrabold text-4xl tracking-widest uppercase'>
+                <div className='flex justify-center gap-1 sm:gap-2 font-extrabold text-2xl sm:text-3xl md:text-4xl tracking-widest uppercase text-center'>
                     <span className='text-black'>Popular </span>
                     <span className='text-[#E63946]'>Shows</span>
                 </div>
