@@ -42,7 +42,7 @@ const HomePage = ({ handleAddToFavourites, loadingState, moviesArray, setSearche
                         navigate('/SearchResult')
                     }
                 }
-                img.src = `https://image.tmdb.org/t/p/original${movie.poster_path}`
+                img.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`
             }
             )
         }
@@ -59,7 +59,7 @@ const HomePage = ({ handleAddToFavourites, loadingState, moviesArray, setSearche
                 <div className='flex justify-center'>
                     <div className='flex relative w-[fit]'>
                         <input
-                            className='p-3 md:w-[40vw] rounded-2xl bg-white/10 backdrop-blur-md border border-[#E63946]/40 focus:outline-none focus:border-[#E63946] focus:ring-2 focus:ring-[#E63946]/30 transition-all duration-300'
+                            className='p-3 w-[40vw] rounded-2xl bg-white/10 backdrop-blur-md border border-[#E63946]/40 focus:outline-none focus:border-[#E63946] focus:ring-2 focus:ring-[#E63946]/30 transition-all duration-300'
                             type="text"
                             placeholder='Watch show favourite show!'
                             value={searchInput}
